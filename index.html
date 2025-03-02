@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Parcelación Guayacanes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
+                        url('https://dl.dropboxusercontent.com/scl/fi/rq9avkmhp4xls5n6bjwnq/ZVERDE_2.jpg?rlkey=04uqau4wg4w7je83jge55pacq&st=ppbs3tkx&dl=1');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://dl.dropboxusercontent.com/scl/fi/rq9avkmhp4xls5n6bjwnq/ZVERDE_2.jpg?rlkey=04uqau4wg4w7je83jge55pacq&st=ppbs3tkx&dl=1');
+            background-size: cover;
+            filter: blur(8px);
+            z-index: -1;
+        }
+
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: fadeOut 1.5s ease-in-out 2s forwards;
+            z-index: 1000;
+        }
+
+        .welcome-text {
+            font-size: 2.5em;
+            color: #ffaa00;
+            opacity: 0;
+            animation: textFade 1.5s ease-in-out forwards;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-weight: 600;
+        }
+
+        .logo {
+            width: min(90%, 350px);
+            margin: 40px auto 30px; /* Centrado horizontalmente */
+            opacity: 0;
+            animation: logoAppear 1s ease-out 2.5s forwards;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 800px;
+            padding: 20px;
+            opacity: 0;
+            animation: buttonsAppear 1s ease-out 3s forwards;
+            margin: 0 auto; /* Centrado horizontalmente */
+        }
+
+        .menu-button {
+            background: #005eff;
+            border: none;
+            padding: 25px 40px;
+            border-radius: 15px;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 94, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
+            min-height: 100px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .menu-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 94, 255, 0.3);
+            background: #004ecb;
+        }
+
+        .menu-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .menu-button:hover::after {
+            left: 100%;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            70% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes textFade {
+            0% { opacity: 0; transform: translateY(20px); }
+            30% { opacity: 1; transform: translateY(0); }
+            70% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; }
+        }
+
+        @keyframes logoAppear {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes buttonsAppear {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .button-container {
+                grid-template-columns: 1fr;
+            }
+            .welcome-text {
+                font-size: 2em;
+                text-align: center;
+            }
+            .menu-button {
+                min-width: 250px;
+                padding: 20px 30px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-overlay">
+        <span class="welcome-text">¡Te damos la bienvenida!</span>
+    </div>
+
+    <img src="https://dl.dropboxusercontent.com/scl/fi/mgywqzbwl5ss5tubf5gv6/LOGO_COLOR.jpg?rlkey=bod3wghu6zprpeclld3p1dbkm&st=iqpj8mki"
+         alt="Logo Guayacanes"
+         class="logo">
+
+    <div class="button-container">
+        <button class="menu-button" onclick="window.open('https://sites.google.com/view/parcelacionguayacanes/financiero', '_blank')">Recaudo</button>
+        <button class="menu-button" onclick="window.open('https://sites.google.com/view/parcelacionguayacanes/clientes', '_blank')">Clientes</button>
+        <button class="menu-button" onclick="window.open('https://sites.google.com/view/parcelacionguayacanes/', '_blank')">Bases</button>
+        <button class="menu-button" onclick="window.open('https://sites.google.com/view/parcelacionguayacanes/inicio', '_blank')">Otros</button>
+    </div>
+</body>
+</html>
